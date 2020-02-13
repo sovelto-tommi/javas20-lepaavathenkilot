@@ -7,7 +7,6 @@ public class Henkilo {
     private String etunimi;
     private String sukunimi;
     private LocalDate syntymaaika;
-    private static int seuraavaId = 7;
     private int id;
 
     public Henkilo() {
@@ -22,15 +21,14 @@ public class Henkilo {
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.syntymaaika = syntymaaika;
-        id = seuraavaId++;
-    }
-
-    public static int nextId() {
-        return seuraavaId;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEtunimi() {

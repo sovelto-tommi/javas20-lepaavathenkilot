@@ -18,7 +18,7 @@ public class HarjoitusRestApplication {
     @Bean
     public CommandLineRunner alustaHenkilosto(Henkilosto henkilosto) {
         return args -> {
-            henkilosto.kaikkiHenkilot().addAll(Arrays.asList(
+            henkilosto.lisaaKaikki(Arrays.asList(
                     new Henkilo("Aku", "Ankka", LocalDate.parse("1954-03-13")),
                     new Henkilo("Iines", "Ankka", LocalDate.parse("1958-04-26")),
                     new Henkilo("Mikki", "Hiiri", LocalDate.parse("1916-06-07")),
