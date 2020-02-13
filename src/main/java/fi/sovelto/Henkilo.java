@@ -7,6 +7,8 @@ public class Henkilo {
     private String etunimi;
     private String sukunimi;
     private LocalDate syntymaaika;
+    private static int seuraavaId = 7;
+    private int id;
 
     public Henkilo() {
         this("lapsi", "Sukunimi", LocalDate.now());
@@ -20,6 +22,15 @@ public class Henkilo {
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.syntymaaika = syntymaaika;
+        id = seuraavaId++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEtunimi() {
@@ -52,6 +63,7 @@ public class Henkilo {
         sb.append("etunimi='").append(etunimi).append('\'');
         sb.append(", sukunimi='").append(sukunimi).append('\'');
         sb.append(", syntymaaika=").append(syntymaaika);
+        sb.append(", id=").append(id);
         sb.append('}');
         return sb.toString();
     }
