@@ -25,12 +25,12 @@ public class Henkilo {
         id = seuraavaId++;
     }
 
-    public int getId() {
-        return id;
+    public static int nextId() {
+        return seuraavaId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getEtunimi() {

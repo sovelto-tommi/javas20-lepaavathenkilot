@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -16,6 +17,8 @@ public class Henkilosto {
     }
 
     public boolean poista(Henkilo h) {
+        return poista(h.getId());
+/*
         Iterator<Henkilo> it = henkilot.iterator();
         while(it.hasNext()) {
             if (it.next().equals(h)) {
@@ -24,6 +27,27 @@ public class Henkilosto {
             }
         }
         return false;
+*/
+    }
+
+    public boolean poista(int id) {
+        Iterator<Henkilo> it = henkilot.iterator();
+        while(it.hasNext()) {
+            if (it.next().getId() == id) {
+                it.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Optional<Henkilo> haeIdlla(int id) {
+        for(Henkilo h : henkilot) {
+            if (h.getId() == id) {
+                return Optional.of(h);
+            }
+        }
+        return Optional.empty();
     }
 
     public List<Henkilo> kaikkiHenkilot() {
